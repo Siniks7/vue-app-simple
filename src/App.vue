@@ -4,7 +4,7 @@ import Button from './components/Button.vue';
 
 <template>
   <header>Лого</header>
-   <Button />
+    <Button>Сохранить</Button>
   <main>Привет!</main>
 </template>
 
