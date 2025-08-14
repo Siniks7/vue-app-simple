@@ -1,11 +1,12 @@
 <script setup>
-import Button from './components/Button.vue';
-import Stat from './components/Stat.vue';
+import Button from "./components/Button.vue";
+import Stat from "./components/Stat.vue";
 </script>
 
 <template>
   <main class="main">
-    <Stat />
+    <Stat label="Влажность" stat="90%" />
+    <Stat label="Осадки" stat="0%" />
     <Button>Сохранить</Button>
   </main>
 </template>
