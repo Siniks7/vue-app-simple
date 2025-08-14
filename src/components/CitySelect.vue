@@ -1,10 +1,15 @@
 <script setup>
 import IconLocation from "../icons/IconLocation.vue";
 import Button from "./Button.vue";
+
+function log() {
+  // eslint-disable-next-line no-undef
+  console.log("Log function call");
+}
 </script>
 
 <template>
-  <Button>
+  <Button @click="log()">
     <IconLocation />
     Изменить город
   </Button>
