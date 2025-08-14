@@ -2,14 +2,14 @@
 import IconLocation from "../icons/IconLocation.vue";
 import Button from "./Button.vue";
 
-function log() {
-  // eslint-disable-next-line no-undef
-  console.log("Log function call");
+const emit = defineEmits(["select-city"]);
+function select() {
+  emit("select-city", "London");
 }
 </script>
 
 <template>
-  <Button @click="log()">
+  <Button @click="select()">
     <IconLocation />
     Изменить город
   </Button>
