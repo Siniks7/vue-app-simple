@@ -1,7 +1,15 @@
-<script setup></script>
+<script setup>
+// eslint-disable-next-line vue/require-prop-types
+const props = defineProps(["value"]);
+const emit = defineEmits(["update:value"]);
+</script>
 
 <template>
-  <input class="input" />
+ <input
+    class="input"
+    :value="props.value"
+    @input="emit('update:value', $event.target.value)"
+  />
 </template>
 
 <style scoped>
