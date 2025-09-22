@@ -1,15 +1,9 @@
 <script setup>
-// eslint-disable-next-line vue/require-prop-types
-const props = defineProps(["value"]);
-const emit = defineEmits(["update:value"]);
+const model = defineModel();
 </script>
 
 <template>
- <input
-    class="input"
-    :value="props.value"
-    @input="emit('update:value', $event.target.value)"
-  />
+ <input v-model="model" class="input" />
 </template>
 
 <style scoped>

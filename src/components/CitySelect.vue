@@ -18,10 +18,6 @@ function select() {
    emit("selectCity", "Питер");
 }
 
-function updateCity(newCity) {
-  city.value = newCity;
-}
-
 function edit() {
   isEdited.value = true;
 }
@@ -31,11 +27,7 @@ function edit() {
   <div class="city-select">
     {{ city }}
     <div v-show="isEdited" class="city-input">
-      <Input
-        placeholder="Введите город"
-        :value="city"
-        @update:value="updateCity"
-      />
+      <Input v-model="city" placeholder="Введите город" />
       <Button @click="select()">Сохранить</Button>
     </div>
     <Button v-show="!isEdited" @click="edit()">
