@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from "vue";
 import IconLocation from "../icons/IconLocation.vue";
 import Button from "./Button.vue";
 
@@ -7,16 +8,25 @@ const emit = defineEmits({
     return payload;
   },
 });
+
+let isEdited = ref(false);
+
 function select() {
-  emit("selectCity", "Питер");
+   isEdited.value = false;
+   emit("selectCity", "Питер");
+}
+
+function edit() {
+  isEdited.value = true;
 }
 </script>
 
 <template>
-  <Button @click="select()">
+  {{ isEdited }}
+  <Button @click="edit()">
     <IconLocation />
     Изменить город
   </Button>
   <input />
-  <Button>Сохранить</Button>
+  <Button @click="select()">Сохранить</Button>
 </template>
