@@ -9,6 +9,24 @@ let data = reactive({
   stat: "90%",
 });
 
+const counter = reactive({
+  count: ref(0),
+});
+counter.count++;
+// eslint-disable-next-line no-undef
+console.log(counter.count);
+
+// Нет unwrap
+const map = reactive(new Map([["count", ref(0)]]));
+map.get("count").value;
+
+// Нет unwrap
+const arr = reactive([ref(0)]);
+arr[0].value;
+
+const obj = { id: ref(1) };
+const id = obj.id;
+
 function getCity(city) {
   savedCity.value = city;
   data.stat = "20%";
@@ -17,6 +35,8 @@ function getCity(city) {
 
 <template>
   <main class="main">
+    {{ savedCity }}
+     {{ id + 1 }}
     <Stat v-bind="data" />
      <CitySelect @select-city="getCity" />
   </main>
