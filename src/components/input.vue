@@ -1,9 +1,10 @@
 <script setup>
-const model = defineModel();
+//es eslint-disable-next-line vue/require-prop-typ
+const data = defineModel({ type: String, required: true });
 </script>
 
 <template>
- <input v-model="model" class="input" />
+ <input v-model="data" class="input" />
 </template>
 
 <style scoped>
