@@ -8,7 +8,7 @@ const emit = defineEmits({
   },
 });
 function select() {
-  emit("selectCity", "London");
+  emit("selectCity", "Питер");
 }
 </script>
 
