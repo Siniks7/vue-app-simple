@@ -12,14 +12,17 @@
   border-radius: 10px;
   background: var(--gradient);
   padding: 14px;
+  height: 53px;
   font-family: var(--font);
   font-size: 20px;
   font-weight: 600;
   color: var(--primary);
   cursor: pointer;
   display: flex;
+  width: 100%;
   gap: 9px;
   align-items: center;
+  justify-content: center;
 }
 .button:hover {
   background: var(--gradient-inverted);

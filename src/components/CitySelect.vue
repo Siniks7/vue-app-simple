@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import IconLocation from "../icons/IconLocation.vue";
 import Button from "./Button.vue";
+import Input from "./input.vue";
 
 const emit = defineEmits({
   selectCity(payload) {
@@ -22,12 +23,14 @@ function edit() {
 </script>
 
 <template>
- <div v-if="isEdited">
-    <input />
-    <Button @click="select()">Сохранить</Button>
+  <div class="city-select">
+    <div v-show="isEdited" class="city-input">
+      <Input placeholder="Введите город" />
+      <Button @click="select()">Сохранить</Button>
+    </div>
+    <Button v-show="!isEdited" @click="edit()">
+      <IconLocation />
+      Изменить город
+    </Button>
   </div>
-  <Button v-else @click="edit()">
-    <IconLocation />
-    Изменить город
-  </Button>
 </template>
