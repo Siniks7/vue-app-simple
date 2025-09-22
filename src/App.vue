@@ -4,7 +4,7 @@ import { computed, ref } from "vue";
 import CitySelect from "./components/CitySelect.vue";
 import Stat from "./components/Stat.vue";
 
-let savedCity = ref("Moscow");
+const API_ENDPOINT = "https://api.weatherapi.com/v1";
 let data = ref({
   humidity: 90,
   rain: 0,
@@ -29,14 +29,20 @@ const dataModified = computed(() => {
 });
 
 async function getCity(city) {
-  savedCity.value = city;
-  data.value.humidity = 20;
+  const params = new URLSearchParams({
+    q: city,
+    lang: "ru",
+    key: "1a8ac117722f4714875154057251409",
+    days: 3,
+  });
+  const res = await fetch(`${API_ENDPOINT}/forecast.json?${params.toString()}`);
+  const data = await res.json();
+  console.log(data);
 }
 </script>
 
 <template>
   <main class="main">
-    <div id="city">{{ savedCity }}</div>
     <Stat v-for="item in dataModified" v-bind="item" :key="item.label" />
     <CitySelect @select-city="getCity" />
   </main>

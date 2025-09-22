@@ -1,21 +1,6 @@
 <!-- eslint-disable no-undef -->
 <script setup>
-import { onMounted, onUnmounted, onUpdated } from 'vue';
-
-//es eslint-disable-next-line vue/require-prop-typ
 const data = defineModel({ type: String, required: true });
-
-onMounted(() => {
-  console.log("Input mounted");
-});
-
-onUpdated(() => {
-  console.log("Input updated");
-});
-
-onUnmounted(() => {
-  console.log("Input unmounted");
-});
 </script>
 
 <template>

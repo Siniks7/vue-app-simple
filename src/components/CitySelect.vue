@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import IconLocation from "../icons/IconLocation.vue";
 import Button from "./Button.vue";
 import Input from "./input.vue";
@@ -15,12 +15,17 @@ let isEdited = ref(false);
 
 function select() {
    isEdited.value = false;
-   emit("selectCity", "Питер");
+   emit("selectCity", city.value);
 }
 
 function edit() {
   isEdited.value = true;
 }
+
+onMounted(() => {
+  emit("selectCity", city.value);
+});
+
 </script>
 
 <template>
