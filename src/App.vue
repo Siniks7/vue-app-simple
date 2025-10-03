@@ -37,7 +37,7 @@ async function getCity(city) {
   });
   const res = await fetch(`${API_ENDPOINT}/forecast.json?${params.toString()}`);
   const data = await res.json();
-  console.log(data);
+  console.log(data, city);
 }
 </script>
 
