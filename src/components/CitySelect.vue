@@ -30,7 +30,6 @@ onMounted(() => {
 
 <template>
   <div class="city-select">
-    {{ city }}
     <div v-if="isEdited" class="city-input">
        <Input
         v-model="city"
