@@ -13,7 +13,7 @@ const props = defineProps({
   font-size: 18px;
   padding: 15px;
   text-align: center;
-  background: var(--color-bg-card);
+  background: var(--color-bg-error);
   border-radius: 0px 0px 25px 25px;
   margin-top: -60px;
   margin-bottom: 60px;
