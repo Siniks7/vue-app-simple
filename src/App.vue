@@ -1,6 +1,6 @@
 <!-- eslint-disable no-undef -->
 <script setup>
-import { ref } from "vue";
+import { provide, ref } from "vue";
 import PaneRight from "./components/PaneRight.vue";
 
 const API_ENDPOINT = "https://api.weatherapi.com/v1";
@@ -8,6 +8,8 @@ const API_ENDPOINT = "https://api.weatherapi.com/v1";
 let data = ref();
 let error = ref();
 let activeIndex = ref(0);
+
+provide("num", activeIndex);
 
 async function getCity(city) {
   const params = new URLSearchParams({
