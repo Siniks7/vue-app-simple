@@ -8,8 +8,16 @@ const API_ENDPOINT = "https://api.weatherapi.com/v1";
 let data = ref();
 let error = ref();
 let activeIndex = ref(0);
+let city = ref("Красноярск");
+provide("city", city);
 
-provide("num", activeIndex);
+watch(city, () => {
+  getCity(city.value);
+});
+
+onMounted(() => {
+  getCity(city.value);
+});
 
 async function getCity(city) {
   const params = new URLSearchParams({
@@ -38,7 +46,6 @@ async function getCity(city) {
         :error
         :active-index="activeIndex"
         @select-index="(i) => (activeIndex = i)"
-        @select-city="getCity"
       />
     </div>
   </main>
