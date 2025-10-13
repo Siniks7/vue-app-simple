@@ -2,14 +2,13 @@
 <script setup>
 import { provide, ref } from "vue";
 import PaneRight from "./components/PaneRight.vue";
-
-const API_ENDPOINT = "https://api.weatherapi.com/v1";
+import { API_ENDPOINT, cityProvide } from "./constants";
 
 let data = ref();
 let error = ref();
 let activeIndex = ref(0);
 let city = ref("Красноярск");
-provide("city", city);
+provide(cityProvide, city);
 
 watch(city, () => {
   getCity(city.value);
