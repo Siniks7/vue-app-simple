@@ -45,3 +45,15 @@ onMounted(() => {
     </Button>
   </div>
 </template>
+
+<style scoped>
+.city-input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.city-input input {
+  width: 100%;
+}
+</style>
